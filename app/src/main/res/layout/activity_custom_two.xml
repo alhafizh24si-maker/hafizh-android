@@ -1,46 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/putih">
+    android:background="@drawable/binbin">
 
-    <ImageButton
-        android:id="@+id/btnBackIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Back"
-        android:padding="12dp"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#2688BD" />
-
-    <TextView
-        android:id="@+id/tvTitleHalaman"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat"
-        android:text="Profil Saya"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBackIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnBackIcon" />
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/black" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBackIcon">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,12 +41,12 @@
                     android:id="@+id/ivUserProfile"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:background="@drawable/foto"
                     android:padding="4dp"
                     android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/foto"
                     app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.SmallComponent"
-                    app:strokeColor="#4285F4"
-                    app:strokeWidth="2dp" />
+                    app:strokeColor="#064e3b"
+                    app:strokeWidth="3dp" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/btnEditPhoto"
@@ -70,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
                     app:fabCustomSize="36dp"
-                    app:backgroundTint="#4285F4"
+                    app:backgroundTint="#064e3b"
                     app:srcCompat="@android:drawable/ic_menu_edit"
                     app:tint="@color/white" />
             </FrameLayout>
@@ -81,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat"
-                android:text="User Globy"
+                android:text="User Binadesa"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -91,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:text="user.globy@email.com"
+                android:text="hafizh.cool@binadesa.id"
                 android:textColor="#757575"
                 android:textSize="14sp" />
 
@@ -114,13 +98,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1,250"
-                        android:textColor="#4285F4"
+                        android:textColor="#064e3b"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Poin"
+                        android:text="Poin Desa"
                         android:textSize="12sp"/>
                 </LinearLayout>
 
@@ -136,8 +120,8 @@
                         android:id="@+id/tvUserStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pro"
-                        android:textColor="#4285F4"
+                        android:text="Warga Aktif"
+                        android:textColor="#064e3b"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
                     <TextView
@@ -153,9 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="#EEEEEE"
-                app:strokeWidth="1dp">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -175,15 +157,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@android:drawable/ic_menu_myplaces"
-                            app:tint="#4285F4"/>
-
+                            app:tint="#064e3b"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -193,16 +173,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Nama Lengkap"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:textColor="#9E9E9E"/>
                             <TextView
                                 android:id="@+id/tvFullNameDisplay"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Globy User Indonesia"
+                                android:text="Hafizh Binadesa"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:paddingTop="4dp"/>
+                                android:textSize="15sp"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -211,15 +190,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@android:drawable/ic_menu_call"
-                            app:tint="#4285F4"/>
-
+                            app:tint="#064e3b"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -229,7 +206,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Nomor Telepon"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:textColor="#9E9E9E"/>
                             <TextView
                                 android:id="@+id/tvPhoneDisplay"
@@ -237,11 +214,9 @@
                                 android:layout_height="wrap_content"
                                 android:text="+62 812 3456 7890"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:paddingTop="4dp"/>
+                                android:textSize="15sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -251,14 +226,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
+                android:layout_marginBottom="40dp"
                 android:text="Kembali Ke Dashboard"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                app:backgroundTint="#4285F4"
+                android:textColor="@color/white"
+                app:backgroundTint="#064e3b"
                 app:cornerRadius="12dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

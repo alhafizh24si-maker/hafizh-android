@@ -37,13 +37,13 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.editTextTextPassword.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
+                val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLoggedIn", true) // Menyimpan status true
+                editor.apply()
+
                 Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
-
-                // PINDAH KE MAIN ACTIVITY (DASHBOARD)
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-
-                // Sesuai materi Lifecycle: finish() agar user tidak bisa kembali ke Login via tombol Back
+                startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()

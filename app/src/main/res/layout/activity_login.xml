@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/putih"
+    android:background="@drawable/binbin"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logobinadesa" />
 
     <TextView
         android:id="@+id/textView3"
@@ -28,7 +28,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/montserrat"
         android:gravity="center"
-        android:text="Welcome to GLoby!!"
+        android:text="Welcome to portal binadesa!"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -87,7 +87,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#4285F4"
+        android:backgroundTint="#8BC34A"
         android:fontFamily="@font/montserrat"
         android:text="Masuk"
         android:textSize="16sp"

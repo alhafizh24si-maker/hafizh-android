@@ -5,4 +5,6 @@
     <color name="softblue">#B3CEFA</color>
     <color name="cyanie">#5F93CF</color>
     <color name="darkblue">#4285F4</color>
+    <color name="primary_bina_desa">#064e3b</color> <color name="secondary_bina_desa">#0f766e</color>
+
 </resources>

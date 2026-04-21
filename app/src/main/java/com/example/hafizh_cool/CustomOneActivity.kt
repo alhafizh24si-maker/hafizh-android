@@ -11,37 +11,36 @@ class CustomOneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inisialisasi View Binding
         binding = ActivityCustomOneBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.e("Lifecycle", "CustomOneActivity: onCreate dibuat")
+        // 1. Setup Toolbar
+        setSupportActionBar(binding.toolbar)
 
-        // 1. Ambil data dari Intent dengan nilai default agar tidak null
+        // 2. Ambil data Intent (Perhatikan Kuncinya/Key)
         val judul = intent.getStringExtra("EXTRA_TITLE") ?: "Detail Fitur"
-        val deskripsi = intent.getStringExtra("EXTRA_DESC") ?: "Deskripsi tidak tersedia."
 
-        // 2. Tampilkan data ke TextView sesuai ID di XML terbaru
-        // tvTitleHalaman tetap ada di XML
-        binding.tvTitleHalaman.text = judul
+        // Perbaikan: Jangan masukkan deskripsi panjang sebagai default di sini
+        // agar kamu tahu jika data dari Intent memang tidak masuk.
+        val deskripsi = intent.getStringExtra("EXTRA_DESC") ?: "Deskripsi tidak ditemukan."
 
-        // tvDescHalaman diubah menjadi tvDescription sesuai XML terbaru
-        binding.tvDescription.text = deskripsi
-
-        // 3. Logika Tombol Kembali (Floating Action Button di bawah)
-        binding.btnBack.setOnClickListener {
-            finish()
+        supportActionBar?.apply {
+            title = judul
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
         }
 
-        // 4. Logika Tombol Back di pojok kiri atas (Ikon)
-        binding.btnBackIcon.setOnClickListener {
-            finish()
+        // 3. Update Konten (Pastikan ID tvDescription sesuai dengan di XML)
+        binding.tvDescription.text = deskripsi
+
+        // 4. Logika Tombol Kembali
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("Lifecycle", "CustomOneActivity: onDestroy dihapus")
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }

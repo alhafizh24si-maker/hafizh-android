@@ -18,36 +18,44 @@ class CustomTwoActivity : AppCompatActivity() {
 
         Log.e("Lifecycle", "CustomTwoActivity: onCreate dipanggil")
 
-        // 2. Ambil data dari Intent (jika dikirim dari MainActivity)
-        // Kita gunakan data default jika intent kosong agar aplikasi tidak crash
-        val judul = intent.getStringExtra("EXTRA_TITLE") ?: "Profil Saya"
-        val namaUser = intent.getStringExtra("EXTRA_NAME") ?: "User Globy"
-        val emailUser = intent.getStringExtra("EXTRA_EMAIL") ?: "user.globy@email.com"
+        // 2. Setup Toolbar (Pengganti btnBackIcon dan tvTitleHalaman manual)
+        setSupportActionBar(binding.toolbar)
 
-        // 3. Tampilkan data ke komponen UI sesuai ID di XML terbaru
-        binding.tvTitleHalaman.text = judul
+        // 3. Ambil data dari Intent
+        val judul = intent.getStringExtra("EXTRA_TITLE") ?: "Profil Saya"
+        val namaUser = intent.getStringExtra("EXTRA_NAME") ?: "Hafizh Binadesa"
+        val emailUser = intent.getStringExtra("EXTRA_EMAIL") ?: "hafizh.cool@binadesa.id"
+
+        // 4. Konfigurasi SupportActionBar
+        supportActionBar?.apply {
+            title = judul // Judul tampil di Toolbar
+            setDisplayHomeAsUpEnabled(true) // Munculkan panah kembali (<-)
+            setDisplayShowHomeEnabled(true)
+        }
+
+        // 5. Tampilkan data ke komponen UI
         binding.tvProfileName.text = namaUser
         binding.tvProfileEmail.text = emailUser
 
-        // Opsional: Jika Anda ingin mengisi detail kartu dari Intent
-        binding.tvFullNameDisplay.text = intent.getStringExtra("EXTRA_FULL_NAME") ?: "Globy User Indonesia"
+        // Mengisi detail kartu
+        binding.tvFullNameDisplay.text = intent.getStringExtra("EXTRA_FULL_NAME") ?: "Hafizh Binadesa"
         binding.tvPhoneDisplay.text = intent.getStringExtra("EXTRA_PHONE") ?: "+62 812 3456 7890"
 
-        // 4. Logika Tombol Kembali (Ikon di atas)
-        binding.btnBackIcon.setOnClickListener {
-            finish()
-        }
-
-        // 5. Logika Tombol Kembali (Button besar di bawah)
+        // 6. Logika Tombol Kembali (Button besar di bawah)
         binding.btnBack.setOnClickListener {
-            finish()
+            onBackPressedDispatcher.onBackPressed()
         }
 
-        // 6. Logika Tombol Edit Foto (Floating Action Button)
+        // 7. Logika Tombol Edit Foto (Floating Action Button)
         binding.btnEditPhoto.setOnClickListener {
-            // Tambahkan logika untuk mengganti foto di sini jika diperlukan
             Log.d("Profile", "Tombol edit foto diklik")
         }
+    }
+
+    // 8. Fungsi agar tombol panah di Toolbar berfungsi secara standar
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
     override fun onDestroy() {

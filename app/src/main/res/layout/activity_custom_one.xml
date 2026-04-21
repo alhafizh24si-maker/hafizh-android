@@ -1,48 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/putih">
+    android:background="@drawable/binbin">
 
-    <ImageButton
-        android:id="@+id/btnBackIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Back"
-        android:padding="12dp"
-        android:scaleType="fitCenter"
-        android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#2688BD" />
-
-    <TextView
-        android:id="@+id/tvTitleHalaman"
-        android:layout_width="0dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Detail Fitur Globy"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBackIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnBackIcon"
-        app:layout_constraintTop_toTopOf="@+id/btnBackIcon" />
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/black" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBackIcon">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -76,7 +59,7 @@
                             android:layout_height="120dp"
                             android:layout_gravity="center"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/logo" />
+                            android:src="@drawable/logobinadesa" />
                     </FrameLayout>
 
                     <LinearLayout
@@ -103,7 +86,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/montserrat"
-                            android:text="Custom Halaman 1"
+                            android:text="Apa itu Binadesa?"
                             android:textColor="@color/black"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -112,7 +95,7 @@
                             android:layout_width="50dp"
                             android:layout_height="4dp"
                             android:layout_marginTop="12dp"
-                            android:background="#4285F4" />
+                            android:background="#064e3b" />
 
                         <TextView
                             android:id="@+id/tvDescription"
@@ -121,7 +104,7 @@
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/montserrat"
                             android:lineSpacingExtra="6sp"
-                            android:text="Ini adalah tampilan Custom 1 yang telah ditingkatkan. Gunakan bagian ini untuk memberikan edukasi mendalam kepada pengguna Globy mengenai fitur interaktif yang sedang dikembangkan."
+                            android:text="Binadesa adalah Platform Desa Digital yang bertujuan untuk mengubah cara pengelolaan dan komunikasi di tingkat desa melalui teknologi informasi."
                             android:textColor="#616161"
                             android:textSize="15sp" />
 
@@ -152,14 +135,14 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@android:drawable/ic_dialog_info"
-                        app:tint="#4285F4" />
+                        app:tint="#064e3b" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/montserrat"
-                        android:text="Tahukah kamu? Fitur ini didesain berdasarkan feedback pengguna Globy tahun 2024."
+                        android:text="Tahukah kamu? Fitur ini didesain berdasarkan feedback pengguna Binadesa tahun 2024."
                         android:textColor="#757575"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -173,13 +156,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:layout_gravity="bottom|end"
         android:fontFamily="@font/montserrat"
         android:text="Kembali"
         android:textColor="@color/white"
-        app:backgroundTint="#4285F4"
+        app:backgroundTint="#064e3b"
         app:icon="@android:drawable/ic_menu_revert"
-        app:iconTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:iconTint="@color/white" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

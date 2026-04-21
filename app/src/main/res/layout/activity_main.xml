@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/putih"
-    android:padding="24dp">
+    android:background="@drawable/binbin">
 
-    <ImageView
-        android:id="@+id/imgLogoSmall"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/tvDashboardTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Dashboard Globy"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/welcomeCard"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:cardBackgroundColor="#4285F4"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDashboardTitle">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
-                android:text="Halo, Selamat Datang!"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
-                android:text="Pilih menu di bawah untuk memulai aktivitasmu hari ini."
-                android:textColor="#E0E0E0"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/black"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeCard"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="32dp">
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/imgLogoSmall"
+                    android:layout_width="56dp"
+                    android:layout_height="36dp"
+                    app:srcCompat="@drawable/logobinadesa" />
+
+                <TextView
+                    android:id="@+id/tvDashboardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Dashboard Binadesa"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/welcomeCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#064e3b"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Halo, Selamat Datang!"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Pilih menu di bawah untuk memulai aktivitasmu hari ini."
+                        android:textColor="#E0E0E0"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRumus"
@@ -86,18 +98,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="12dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Bangun Ruang"
-                android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 app:backgroundTint="#FFFFFF"
                 app:cornerRadius="12dp"
                 app:icon="@android:drawable/ic_menu_edit"
                 app:iconGravity="textStart"
-                app:iconPadding="12dp"
-                app:iconTint="#2688BD"
+                app:iconTint="#064e3b"
                 app:strokeColor="#E0E0E0"
                 app:strokeWidth="1dp" />
 
@@ -107,18 +114,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="12dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Halaman Informasi"
-                android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 app:backgroundTint="#FFFFFF"
                 app:cornerRadius="12dp"
                 app:icon="@android:drawable/ic_menu_view"
                 app:iconGravity="textStart"
-                app:iconPadding="12dp"
-                app:iconTint="#2688BD"
+                app:iconTint="#064e3b"
                 app:strokeColor="#E0E0E0"
                 app:strokeWidth="1dp" />
 
@@ -128,38 +130,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginBottom="12dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Halaman Profil"
-                android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 app:backgroundTint="#FFFFFF"
                 app:cornerRadius="12dp"
                 app:icon="@android:drawable/ic_menu_gallery"
                 app:iconGravity="textStart"
-                app:iconPadding="12dp"
-                app:iconTint="#2688BD"
+                app:iconTint="#064e3b"
                 app:strokeColor="#E0E0E0"
                 app:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWebView"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="12dp"
+                android:text="Web Portal Bina Desa"
+                android:textColor="@color/black"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="12dp"
+                app:icon="@android:drawable/ic_menu_search"
+                app:iconGravity="textStart"
+                app:iconTint="#064e3b"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="24dp"
+                android:text="Keluar (Logout)"
+                android:textColor="#FF5252"
+                app:cornerRadius="12dp"
+                app:strokeColor="#FF5252" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogout"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Keluar (Logout)"
-        android:textAllCaps="false"
-        android:textColor="#FF5252"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:cornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:strokeColor="#FF5252"
-        tools:layout_editor_absoluteX="24dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
