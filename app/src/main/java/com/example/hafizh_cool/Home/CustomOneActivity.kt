@@ -1,7 +1,6 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hafizh_cool.databinding.ActivityCustomOneBinding
 

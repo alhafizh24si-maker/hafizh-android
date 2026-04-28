@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/binbin"
+    tools:context=".Profil.ProfilFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#064e3b"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Profil Pengembang"
+            app:titleTextColor="@color/white"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"> <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="32dp"
+            app:cardElevation="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="32dp"> <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivDevPhoto"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"
+                app:srcCompat="@drawable/hafizh"
+                app:strokeColor="#F0F0F0"
+                app:strokeWidth="2dp" />
+
+                <TextView
+                    android:id="@+id/tvDevName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Muhammad Anugrah Alhafizh"
+                    android:textColor="#2C3E50"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivDevPhoto"
+                    app:layout_constraintTop_toTopOf="@+id/ivDevPhoto" />
+
+                <TextView
+                    android:id="@+id/tvNIM"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="NIM: 2457301087"
+                    android:textColor="#7F8C8D"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@android:drawable/ic_menu_agenda"
+                    app:drawableTint="#7F8C8D"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvDevName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevName" />
+
+                <TextView
+                    android:id="@+id/tvProdi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Sistem Informasi"
+                    android:textColor="#7F8C8D"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@android:drawable/ic_menu_edit"
+                    app:drawableTint="#7F8C8D"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvNIM"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNIM" />
+
+                <LinearLayout
+                    android:id="@+id/llSocial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/ivDevPhoto"
+                    app:layout_constraintStart_toStartOf="@+id/ivDevPhoto"
+                    app:layout_constraintTop_toBottomOf="@+id/ivDevPhoto">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginEnd="12dp"
+                        android:src="@drawable/linkedin" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginEnd="12dp"
+                        android:src="@drawable/github" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ig" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="32dp"
+                    android:background="#F0F0F0"
+                    app:layout_constraintTop_toBottomOf="@+id/llSocial" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:orientation="horizontal">
+                        <View android:layout_width="5dp" android:layout_height="match_parent" android:background="#3498DB" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat" android:text="Institusi" android:textColor="#2C3E50" android:textStyle="bold" android:textSize="15sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/montserrat" android:text="POLITEKNIK CALTEX RIAU" android:textColor="#7F8C8D" android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:orientation="horizontal">
+                        <View android:layout_width="5dp" android:layout_height="match_parent" android:background="#3498DB" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat" android:text="Email" android:textColor="#2C3E50" android:textStyle="bold" android:textSize="15sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/montserrat" android:text="anugrahalhafizh@gmail.com" android:textColor="#7F8C8D" android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <View android:layout_width="5dp" android:layout_height="match_parent" android:background="#3498DB" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/montserrat" android:text="Tentang Pengembang" android:textColor="#2C3E50" android:textStyle="bold" android:textSize="15sp" />
+                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="@font/montserrat" android:lineSpacingExtra="6dp" android:text="Mahasiswa yang passionate tentang teknologi dan pembangunan desa. Mengembangkan Platform ini sebagai wujud kontribusi dalam memajukan desa melalui digitalisasi." android:textColor="#7F8C8D" android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

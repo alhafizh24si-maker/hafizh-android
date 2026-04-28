@@ -1,4 +1,4 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.os.Bundle
 import android.webkit.WebViewClient

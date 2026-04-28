@@ -1,4 +1,4 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.content.Intent
 import android.os.Bundle

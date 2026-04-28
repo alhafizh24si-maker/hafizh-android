@@ -1,4 +1,4 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.os.Bundle
 import android.util.Log
@@ -29,7 +29,7 @@ class CustomTwoActivity : AppCompatActivity() {
         // 4. Konfigurasi SupportActionBar
         supportActionBar?.apply {
             title = judul // Judul tampil di Toolbar
-            setDisplayHomeAsUpEnabled(true) // Munculkan panah kembali (<-)
+            setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
 

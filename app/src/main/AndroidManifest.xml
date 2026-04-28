@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,25 +14,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hafizhcool">
         <activity
-            android:name=".WebViewActivity"
+            android:name=".Home.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Home.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomTwoActivity"
+            android:name=".Home.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomOneActivity"
+            android:name=".Home.CustomTwoActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginResultActivity"
+            android:name=".Home.CustomOneActivity"
             android:exported="false" />
         <activity
-            android:name=".kalkulator"
+            android:name=".Home.LoginResultActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Home.kalkulator"
+            android:exported="false" />
+        <activity
+            android:name=".BaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Home.MainActivity"
             android:exported="false" />
     </application>
 

@@ -1,10 +1,11 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.hafizh_cool.R
 import com.example.hafizh_cool.databinding.ActivityLoginBinding
 
 class LoginResultActivity : AppCompatActivity() {

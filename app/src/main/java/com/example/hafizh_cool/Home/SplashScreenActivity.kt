@@ -1,10 +1,11 @@
-package com.example.hafizh_cool
+package com.example.hafizh_cool.Home
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.hafizh_cool.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
