@@ -23,13 +23,14 @@ class kalkulator : AppCompatActivity() {
             insets
         }
 
-        // --- 1. TANGKAP DATA INTENT DI SINI ---
-        val judul = intent.getStringExtra("EXTRA_TITLE")
-        val desc = intent.getStringExtra("EXTRA_DESC")
+        val judul = intent.getStringExtra("EXTRA_TITLE") ?: "Kalkulator Geometri"
+        val desc = intent.getStringExtra("EXTRA_DESC") ?: "Hitung Luas Jajar Genjang & Volume Kubus"
 
-        // Hubungkan ke ID yang ada di layout XML (activity_kalkulator.xml)
         val tvJudul = findViewById<TextView>(R.id.tvTitleHalaman)
         val tvDeskripsi = findViewById<TextView>(R.id.tvDescHalaman)
+
+        tvJudul.text = judul
+        tvDeskripsi.text = desc
 
         // Set teksnya
         tvJudul.text = judul

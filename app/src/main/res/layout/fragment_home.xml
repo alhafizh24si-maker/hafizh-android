@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/binbin"
     tools:context=".Home.HomeFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#064e3b"
-        app:elevation="0dp">
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@drawable/ic_wave_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Dashboard Binadesa"
-            app:titleTextColor="@color/white"
-            app:layout_scrollFlags="scroll|enterAlways" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Dashboard Binadesa"
+        app:titleTextColor="@android:color/white" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="24dp"
+        android:layout_height="0dp"
         android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,9 +41,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_marginBottom="24dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imgLogoSmall"
@@ -54,11 +57,28 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="Dashboard Binadesa"
-                    android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:text="Halaman Utama"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutSearch"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="Cari Layanan..."
+                app:startIconDrawable="@android:drawable/ic_menu_search">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_container"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/welcomeCard"
@@ -88,79 +108,145 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat"
-                        android:text="Pilih menu di bawah untuk memulai aktivitasmu hari ini."
+                        android:text="Pilih kategori dan menu di bawah ini."
                         android:textColor="#E0E0E0"
                         android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnRumus"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="12dp"
-                android:text="Bangun Ruang"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Filter Layanan"
                 android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_menu_edit"
-                app:iconGravity="textStart"
-                app:iconTint="#064e3b"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp" />
+                android:textStyle="bold" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCustom1"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="12dp"
-                android:text="Halaman Informasi"
-                android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_menu_view"
-                app:iconGravity="textStart"
-                app:iconTint="#064e3b"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:singleSelection="true">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCustom2"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="12dp"
-                android:text="Halaman Profil"
-                android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_menu_gallery"
-                app:iconGravity="textStart"
-                app:iconTint="#064e3b"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSemua"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Semua" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnWebView"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipInformasi"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPendidikan"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendidikan" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayoutMenu"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginBottom="12dp"
-                android:text="Web Portal Bina Desa"
-                android:textColor="@color/black"
-                app:backgroundTint="#FFFFFF"
-                app:cornerRadius="12dp"
-                app:icon="@android:drawable/ic_menu_search"
-                app:iconGravity="textStart"
-                app:iconTint="#064e3b"
-                app:strokeColor="#E0E0E0"
-                app:strokeWidth="1dp" />
+                android:layout_height="wrap_content"
+                app:columnCount="2"
+                app:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRumus"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Rumus"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_edit"
+                    app:iconGravity="top"
+                    app:iconTint="#064e3b"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCustom1"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Informasi"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_view"
+                    app:iconGravity="top"
+                    app:iconTint="#064e3b"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCustom2"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Profil"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_gallery"
+                    app:iconGravity="top"
+                    app:iconTint="#064e3b"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWebView"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Web Portal"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_search"
+                    app:iconGravity="top"
+                    app:iconTint="#064e3b"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMoreMenu"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Selengkapnya"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_more"
+                    app:iconGravity="textStart"
+                    app:iconPadding="12dp"
+                    app:iconTint="#064e3b"
+                    app:layout_columnSpan="2"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+            </androidx.gridlayout.widget.GridLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="40dp" />
+                android:layout_height="32dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"
@@ -175,4 +261,5 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
