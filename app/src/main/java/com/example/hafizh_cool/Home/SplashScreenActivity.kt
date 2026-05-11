@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.hafizh_cool.BaseActivity
 import com.example.hafizh_cool.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
 
             if (isLoggedIn) {
                 // Jika data di HP bilang TRUE, masuk Dashboard
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashActivity, BaseActivity::class.java))
             } else {
                 // Jika data di HP bilang FALSE, masuk Login
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
