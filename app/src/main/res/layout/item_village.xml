@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvIconHome"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        app:cardBackgroundColor="#10b981"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_menu_directions"
+            app:tint="#FFFFFF" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/badgeAktif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#064e3b"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="4dp"
+        app:contentPaddingBottom="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✓ Aktif"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvVillageName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Desa Flamboyan Asri 009"
+        android:textColor="#064e3b"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvIconHome" />
+
+    <TextView
+        android:id="@+id/lblLokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="📍  Lokasi:"
+        android:textColor="#1f2937"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvVillageName" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvLokasi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="#f9fafb"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#f3f4f6"
+        app:strokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblLokasi">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:columnCount="2"
+            app:rowCount="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_columnWeight="1"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kecamatan" android:textSize="12sp" android:textColor="#9ca3af"/>
+                <TextView android:id="@+id/tvKecamatan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kecamatan Mawar" android:textStyle="bold" android:textColor="#374151"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_columnWeight="1"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kabupaten" android:textSize="12sp" android:textColor="#9ca3af"/>
+                <TextView android:id="@+id/tvKabupaten" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kabupaten Subulussalam" android:textStyle="bold" android:textColor="#374151"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Provinsi" android:textSize="12sp" android:textColor="#9ca3af"/>
+                <TextView android:id="@+id/tvProvinsi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Provinsi Kepulauan Riau" android:textStyle="bold" android:textColor="#374151"/>
+            </LinearLayout>
+        </androidx.gridlayout.widget.GridLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/lblKontak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="📞  Kontak"
+        android:textColor="#1f2937"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvLokasi" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/glKontak"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:columnCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblKontak">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_columnWeight="1">
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_dialog_email" app:tint="#9ca3af"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email" android:textSize="11sp" android:textColor="#9ca3af"/>
+                <TextView android:id="@+id/tvEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="email@desa.id" android:textSize="13sp" android:textColor="#374151"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_columnWeight="1">
+            <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/ic_menu_call" app:tint="#9ca3af"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Telepon" android:textSize="11sp" android:textColor="#9ca3af"/>
+                <TextView android:id="@+id/tvTelepon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0812345678" android:textSize="13sp" android:textColor="#374151"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/lblVisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="👁️  Visi"
+        android:textColor="#1f2937"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glKontak" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvVisi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="#f0fdf4"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblVisi">
+        <TextView
+            android:id="@+id/tvVisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Isi Visi Desa"
+            android:textColor="#064e3b"
+            android:textSize="13sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/lblMisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="📜  Misi"
+        android:textColor="#1f2937"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvVisi" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvMisi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="#f4f4f5"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblMisi">
+        <TextView
+            android:id="@+id/tvMisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Isi Misi Desa"
+            android:textColor="#27272a"
+            android:textSize="13sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/lblAlamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="🏢  Alamat Kantor"
+        android:textColor="#1f2937"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvMisi" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvAlamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="#fbfbfa"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#f4f4f5"
+        app:strokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblAlamat">
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Alamat Kantor Desa"
+            android:textColor="#71717a"
+            android:textSize="13sp" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

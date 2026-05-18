@@ -242,6 +242,25 @@
                     app:strokeColor="#E0E0E0"
                     app:strokeWidth="1dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnProfilDesa"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="8dp"
+                    android:text="ProfilDesa"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_more"
+                    app:iconGravity="textStart"
+                    app:iconPadding="12dp"
+                    app:iconTint="#064e3b"
+                    app:layout_columnSpan="2"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
             </androidx.gridlayout.widget.GridLayout>
 
             <View

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hafizh_cool.Home.LoginActivity
+import com.example.hafizh_cool.Home.Village.VillageActivity
 import com.example.hafizh_cool.databinding.FragmentHomeBinding
 import com.google.android.material.chip.Chip
 
@@ -60,6 +61,10 @@ class HomeFragment : Fragment() {
             moveActivity(MoreMenuActivity::class.java)
         }
 
+        binding.btnProfilDesa.setOnClickListener {
+            val intent = Intent(requireContext(), VillageActivity::class.java)
+            startActivity(intent)
+        }
 
         // 3. Logika Logout
         binding.btnLogout.setOnClickListener {

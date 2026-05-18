@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    android:fillViewport="true"
+    tools:context=".Home.Village.TabAFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvVillageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#064e3b"
+            android:layout_marginBottom="16dp"
+            tools:text="Nama Desa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📍 Lokasi:"
+            android:textStyle="bold"
+            android:textColor="#374151" />
+
+        <TextView
+            android:id="@+id/tvKecamatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            tools:text="Kecamatan" />
+
+        <TextView
+            android:id="@+id/tvKabupaten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Kabupaten" />
+
+        <TextView
+            android:id="@+id/tvProvinsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            tools:text="Provinsi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📞 Kontak:"
+            android:textStyle="bold"
+            android:textColor="#374151" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/tvTelepon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            tools:text="Telepon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👁️ Visi:"
+            android:textStyle="bold"
+            android:textColor="#374151" />
+
+        <TextView
+            android:id="@+id/tvVisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E0F2FE"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            tools:text="Isi Visi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📜 Misi:"
+            android:textStyle="bold"
+            android:textColor="#374151" />
+
+        <TextView
+            android:id="@+id/tvMisi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E6F4EA"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            tools:text="Isi Misi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏢 Alamat Kantor:"
+            android:textStyle="bold"
+            android:textColor="#374151" />
+
+        <TextView
+            android:id="@+id/tvAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F3F4F6"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            tools:text="Alamat lengkap kantor desa" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
