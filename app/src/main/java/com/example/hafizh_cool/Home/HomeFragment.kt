@@ -10,10 +10,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hafizh_cool.Home.LoginActivity
 import com.example.hafizh_cool.Home.Village.VillageActivity
+import com.example.hafizh_cool.Home.news.NewsAdapter
+import com.example.hafizh_cool.data.api.NewsApiClient
 import com.example.hafizh_cool.databinding.FragmentHomeBinding
 import com.google.android.material.chip.Chip
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -34,6 +41,9 @@ class HomeFragment : Fragment() {
         val activity = (requireActivity() as AppCompatActivity)
         activity.setSupportActionBar(binding.toolbar)
 
+        // Memuat data dari API ReqRes
+        loadNewsData()
+
         binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
             val selectedChipId = checkedIds.firstOrNull()
             if (selectedChipId != null) {
@@ -41,6 +51,7 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "Kategori: ${chip.text}", Toast.LENGTH_SHORT).show()
             }
         }
+
         binding.btnRumus.setOnClickListener {
             moveActivity(kalkulator::class.java)
         }
@@ -66,9 +77,38 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 3. Logika Logout
+        // Logika Logout
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
+        }
+    }
+
+    private fun loadNewsData() {
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // 1. Ambil kontainer objek utama dari API
+                val responseContainer = NewsApiClient.apiService.getNews()
+
+                // 2. Ekstrak list berita dari dalam variabel 'results'
+                val listBeritaAsli = responseContainer.results
+
+                withContext(Dispatchers.Main) {
+                    if (listBeritaAsli.isNotEmpty()) {
+                        val newsAdapter = NewsAdapter(listBeritaAsli)
+                        binding.rvNews.layoutManager = LinearLayoutManager(requireContext())
+                        binding.rvNews.adapter = newsAdapter
+
+                        newsAdapter.notifyDataSetChanged()
+                    } else {
+                        Toast.makeText(requireContext(), "Tidak ada berita tersedia", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    android.util.Log.e("RETROFIT_BUG", "Penyebab: ${e.message}", e)
+                    Toast.makeText(requireContext(), "Gagal: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 
@@ -82,13 +122,10 @@ class HomeFragment : Fragment() {
             .setTitle("Logout")
             .setMessage("Apakah Anda yakin ingin keluar?")
             .setPositiveButton("Ya") { _, _ ->
-                // Clear Session
                 val sharedPref = requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 sharedPref.edit().clear().apply()
 
-                // Arahkan kembali ke Login
                 val intent = Intent(requireContext(), LoginActivity::class.java)
-                // Menghapus tumpukan activity agar tidak bisa "Back" ke Home lagi
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 requireActivity().finish()
