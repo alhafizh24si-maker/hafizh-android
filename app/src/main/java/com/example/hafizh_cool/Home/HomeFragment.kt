@@ -18,6 +18,7 @@ import com.example.hafizh_cool.Home.news.NewsAdapter
 import com.example.hafizh_cool.data.api.NewsApiClient
 import com.example.hafizh_cool.databinding.FragmentHomeBinding
 import com.example.hafizh_cool.ui.BeritaActivity
+import com.example.hafizh_cool.ui.AgendaActivity // 💡 Import AgendaActivity Baru
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -75,9 +76,14 @@ class HomeFragment : Fragment() {
             moveActivity(VillageActivity::class.java)
         }
 
-        // 💡 AKSI UTAMA: Navigasi tombol ke BeritaActivity
+        // Navigasi tombol ke BeritaActivity
         binding.btnBeritaLocal.setOnClickListener {
             moveActivity(BeritaActivity::class.java)
+        }
+
+        // 💡 AKSI UTAMA BARU: Navigasi tombol ke AgendaActivity
+        binding.btnAgendaLocal.setOnClickListener {
+            moveActivity(AgendaActivity::class.java)
         }
 
         binding.btnLogout.setOnClickListener {
