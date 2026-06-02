@@ -17,6 +17,7 @@ import com.example.hafizh_cool.Home.Village.VillageActivity
 import com.example.hafizh_cool.Home.news.NewsAdapter
 import com.example.hafizh_cool.data.api.NewsApiClient
 import com.example.hafizh_cool.databinding.FragmentHomeBinding
+import com.example.hafizh_cool.ui.BeritaActivity
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -37,11 +38,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup Toolbar
         val activity = (requireActivity() as AppCompatActivity)
         activity.setSupportActionBar(binding.toolbar)
 
-        // Memuat data dari API ReqRes
         loadNewsData()
 
         binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
@@ -73,11 +72,14 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnProfilDesa.setOnClickListener {
-            val intent = Intent(requireContext(), VillageActivity::class.java)
-            startActivity(intent)
+            moveActivity(VillageActivity::class.java)
         }
 
-        // Logika Logout
+        // 💡 AKSI UTAMA: Navigasi tombol ke BeritaActivity
+        binding.btnBeritaLocal.setOnClickListener {
+            moveActivity(BeritaActivity::class.java)
+        }
+
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
         }
@@ -86,10 +88,7 @@ class HomeFragment : Fragment() {
     private fun loadNewsData() {
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // 1. Ambil kontainer objek utama dari API
                 val responseContainer = NewsApiClient.apiService.getNews()
-
-                // 2. Ekstrak list berita dari dalam variabel 'results'
                 val listBeritaAsli = responseContainer.results
 
                 withContext(Dispatchers.Main) {
@@ -97,8 +96,6 @@ class HomeFragment : Fragment() {
                         val newsAdapter = NewsAdapter(listBeritaAsli)
                         binding.rvNews.layoutManager = LinearLayoutManager(requireContext())
                         binding.rvNews.adapter = newsAdapter
-
-                        newsAdapter.notifyDataSetChanged()
                     } else {
                         Toast.makeText(requireContext(), "Tidak ada berita tersedia", Toast.LENGTH_SHORT).show()
                     }
@@ -106,7 +103,6 @@ class HomeFragment : Fragment() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     android.util.Log.e("RETROFIT_BUG", "Penyebab: ${e.message}", e)
-                    Toast.makeText(requireContext(), "Gagal: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
                 }
             }
         }

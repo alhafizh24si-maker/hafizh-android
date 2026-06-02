@@ -11,15 +11,10 @@ class TutorialMessageActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Mengaktifkan tampilan Edge-to-Edge agar sinkron dengan Splash & Home
         enableEdgeToEdge()
-
-        // Inisialisasi View Binding
         binding = ActivityTutorialMessageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Siapkan daftar fragment tutorial yang akan ditampilkan
         val fragmentsList = listOf(
             Tutorial1Fragment(),
             Tutorial2Fragment(),
