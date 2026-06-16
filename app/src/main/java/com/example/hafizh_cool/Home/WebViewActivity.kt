@@ -1,8 +1,11 @@
 package com.example.hafizh_cool.Home
 
+import android.content.Intent
 import android.os.Bundle
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.example.hafizh_cool.data.utils.NotificationHelper
 import com.example.hafizh_cool.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {
@@ -24,9 +27,29 @@ class WebViewActivity : AppCompatActivity() {
 
         // Setup WebView
         binding.webView.apply {
-            webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
-            // Ganti dengan URL Bina Desa yang diinginkan
+
+            // 🔔 Modifikasi WebViewClient untuk mendeteksi halaman selesai dimuat
+            webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+
+                    // Membuat intent agar jika notifikasi diklik, user tetap di halaman WebView ini
+                    val intentNotif = Intent(this@WebViewActivity, WebViewActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_SINGLE_TOP // Mencegah activity menumpuk berulang kali
+                    }
+
+                    // Memicu Local Notification native Android
+                    NotificationHelper.showNotification(
+                        context = this@WebViewActivity,
+                        title = "Portal Desa Terhubung!",
+                        message = "Anda sedang mengakses portal resmi layanan digital Bina Desa.",
+                        intent = intentNotif
+                    )
+                }
+            }
+
+            // Memuat URL Portal Bina Desa Anda
             loadUrl("https://portal-guest.alwaysdata.net/login")
         }
 

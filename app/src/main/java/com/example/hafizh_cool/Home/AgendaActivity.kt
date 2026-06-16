@@ -13,7 +13,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hafizh_cool.data.AppDatabase
 import com.example.hafizh_cool.data.model.AgendaViewModel
-import com.example.hafizh_cool.data.utils.NotificationHelper
 import com.example.hafizh_cool.data.utils.PermissionHelper
 import com.example.hafizh_cool.data.utils.ReminderHelper
 import com.example.hafizh_cool.databinding.ActivityAgendaBinding
@@ -104,16 +103,7 @@ class AgendaActivity : AppCompatActivity() {
                 // Simpan data ke dalam Database SQLite Local via ViewModel
                 viewModel.tambahAgendaBaru(judul, tanggal, lokasi, keterangan)
 
-                // [2] LOCAL NOTIFICATION: Muncul instan untuk konfirmasi sukses input
-                val intentNotif = Intent(this, AgendaActivity::class.java)
-                NotificationHelper.showNotification(
-                    context = this,
-                    title = "Agenda Desa Berhasil Dibuat!",
-                    message = "Kegiatan '$judul' telah terdaftar di database.",
-                    intent = intentNotif
-                )
-
-                // [3] REMINDER MANAGER: Set pengingat latar belakang jika kolom diisi
+                // [2] REMINDER MANAGER: Set pengingat latar belakang jika kolom diisi
                 if (inputMenit.isNotEmpty()) {
                     val menit = inputMenit.toInt()
                     val calendar = Calendar.getInstance().apply {
@@ -130,7 +120,7 @@ class AgendaActivity : AppCompatActivity() {
                     )
                     Toast.makeText(this, "Agenda disimpan & pengingat $menit menit aktif!", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(this, "Agenda berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Agenda berhasil ditambahkan tanpa pengingat.", Toast.LENGTH_SHORT).show()
                 }
 
                 dialog.dismiss()
