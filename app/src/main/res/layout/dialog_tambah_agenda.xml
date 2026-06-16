@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -36,6 +37,21 @@
         android:layout_marginTop="8dp"
         android:hint="Keterangan Tambahan"
         android:inputType="textLongMessage" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Setel Pengingat (Menit dari sekarang)"
+        app:boxStrokeColor="#0f172a"
+        app:hintTextColor="#0f172a">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMenitReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
