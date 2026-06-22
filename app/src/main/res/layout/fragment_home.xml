@@ -244,7 +244,6 @@
                     app:strokeColor="#E0E0E0"
                     app:strokeWidth="1dp" />
 
-                <!-- 💡 SEKARANG ADA TOMBOL AGENDA DI SINI -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAgendaLocal"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
@@ -271,6 +270,24 @@
                     app:backgroundTint="#FFFFFF"
                     app:cornerRadius="12dp"
                     app:icon="@android:drawable/ic_menu_mapmode"
+                    app:iconGravity="top"
+                    app:iconTint="#064e3b"
+                    app:layout_columnSpan="2"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
+
+                <!-- 💡 INDEKS BARU: MENU KAMERA & QR CODE -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMenuKamera"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:text="Kamera &amp; QR"
+                    android:textColor="@color/black"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_camera"
                     app:iconGravity="top"
                     app:iconTint="#064e3b"
                     app:layout_columnSpan="2"
